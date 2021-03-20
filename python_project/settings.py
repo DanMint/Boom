@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'python_project.apps.accounts',
+    'python_project.apps.product_db',
 
 ]
 
