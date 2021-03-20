@@ -17,3 +17,11 @@ def about(request: HttpRequest) -> HttpResponse:
 
 def contact(request: HttpRequest) -> HttpResponse:
     return render(request, "contact.html")
+
+
+def shirts(request: HttpRequest) -> HttpResponse:
+    return render(request, "products/shirts.html")
+
+
+def pants(request: HttpRequest) -> HttpResponse:
+    return render(request, "products/pants.html")
