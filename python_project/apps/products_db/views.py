@@ -10,7 +10,3 @@ from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsPr
 from python_project.apps.products_db.Women_Skirts_db.models import WomenSkirtsProducts
 
 
-def WomenShirtsForHTML(request):
-    products = WomenShirtsProducts.objects.all()
-    context = {'products': products}
-    return render(request, 'products/Shirts/shirts.html', context)

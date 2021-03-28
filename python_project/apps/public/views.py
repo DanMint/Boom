@@ -3,6 +3,8 @@ from django.template import loader
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
+
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -19,8 +21,10 @@ def contact(request: HttpRequest) -> HttpResponse:
     return render(request, "contact.html")
 
 
-def shirts(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/Shirts/shirts.html")
+def shirts(request):
+    products = WomenShirtsProducts.objects.all()
+    context = {'products': products}
+    return render(request, 'products/Shirts/shirts.html', context)
 
 
 def pants(request: HttpRequest) -> HttpResponse:
