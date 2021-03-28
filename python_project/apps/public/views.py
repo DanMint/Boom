@@ -20,8 +20,12 @@ def contact(request: HttpRequest) -> HttpResponse:
 
 
 def shirts(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/shirts.html")
+    return render(request, "products/Shirts/shirts.html")
 
 
 def pants(request: HttpRequest) -> HttpResponse:
     return render(request, "products/pants.html")
+
+
+def Shirtone(request: HttpRequest) -> HttpResponse:
+    return render(request, "products/Shirts/Things_shirts/ShirtOne.html")

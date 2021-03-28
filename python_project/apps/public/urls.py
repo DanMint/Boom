@@ -10,6 +10,8 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('products/shirts', views.shirts, name="shirts"),
     path('products/pants', views.pants, name="pants"),
+    path('products/shirts/Givencci', views.Shirtone, name="Givencci"),
+
     # path('products/tankTops', views.tankTops),
     # path('products/socks', views.socks  ),
 ]
