@@ -11,7 +11,15 @@ class WomenShirtsProducts(models.Model):
     product_name = models.CharField(max_length=120)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
-    # image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.product_name
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
