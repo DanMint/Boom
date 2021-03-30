@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <title>Home Page</title>
 <meta charset="UTF-8">
@@ -24,60 +26,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
     {% include 'navbar.html' %}
 
+
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-       <a href="/products/ShirtOne">
-        <img src="https://st.tsum.com/btrx/i/11/31/46/17//01_1526.jpg?u=1599428620" style="width:100%">
-        <h3>Givencci</h3>
-       </a>
-    </div>
-    <div class="w3-quarter">
-        <a href="">
-            <img src="https://st.tsum.com/btrx/i/11/09/51/17//01_1526.jpg?u=1588263915" style="width:100%">
-            <h3>Valentino</h3>
-        </a>
-    </div>
-    <div class="w3-quarter">
-         <a href="">
-          <img src="https://st.tsum.com/btrx/i/11/87/73/21//01_1526.jpg?u=1615671735" alt="Cherries" style="width:100%">
-          <h3>Lowe</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-         <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/82/08/07//01_1526.jpg?u=1614288868" style="width:100%">
-             <h3>Tribal</h3>
-         </a>
-    </div>
-  </div>
+    {% for product in products%}
+            <div class="w3-quarter">
+{#            <a href="/products/ShirtOne">#}
+            <img src="{{ product.image.url }}" style="width:100%">
+            <h3> {{product.product_name}}</h3>
+                <h4> {{ product.price }}</h4>
 
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/87/36/54//01_1526.jpg?u=1615587588" style="width:100%">
-             <h3>Mid-Night</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/79/00/01//01_1526.jpg?u=1613486321" style="width:100%">
-             <h3>Purple Mist</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/85/53/60//01_1526.jpg?u=1615067043" style="width:100%">
-             <h3>Mystery</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/82/13/53//01_1526.jpg?u=1614289182" style="width:100%">
-             <h3>Savanah</h3>
-         </a>
-    </div>
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                <a href="{{ product.image.url }} ">view</a>
+        </div>
+    {% endfor %}
   </div>
 
 

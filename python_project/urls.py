@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from . import views
+from . import views, settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('python_project.apps.public.urls')),
     path("accounts/", include('python_project.apps.accounts.urls')),
-
     ]
+
+# here we append thats why += we grab media url and seting it to the imagess folder then
+# we add this to media root which points to images
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+

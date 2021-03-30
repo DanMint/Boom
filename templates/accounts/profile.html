@@ -7,7 +7,7 @@
         {{ user.get_full_name }} (@{{ user.username }})
     </h1>
 
-    {% with profile=user.profile %}
+    {% with xprofile=user.profile %}
         {% if  profile%}
             <h2>
                 {{ profile.persona|default:"" }}
