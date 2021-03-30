@@ -11,9 +11,8 @@ urlpatterns = [
     # here we specify the data bases
     path('products/shirts', views.shirts, name="shirts"),
     path('products/pants', views.pants, name="pants"),
-    path('products/dress', views.pants, name="dress"),
-    path('products/skirts', views.pants, name="skirts"),
-    path('products/pants', views.pants, name="pants"),
+    path('products/dress', views.dress, name="dress"),
+    path('products/skirts', views.skirts, name="skirts"),
     path('products/sweatshirts', views.pants, name="swetshirts"),
     path('products/shirts/Givencci', views.Shirtone, name="Givencci"),
 
