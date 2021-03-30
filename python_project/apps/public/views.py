@@ -6,7 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
 
 
-
 def index(request: HttpRequest) -> HttpResponse:
     # Here we can pass in data from our route to render the template
     print(request.user)

@@ -1,5 +1,5 @@
 
-{% load static %}
+
 <!DOCTYPE html>
 <title>Home Page</title>
 <meta charset="UTF-8">
@@ -32,10 +32,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     {% for product in products%}
             <div class="w3-quarter">
 {#            <a href="/products/ShirtOne">#}
-            <img src="{{ product.imageURL }}" style="width:100%">
+            <img src="{{ product.image.url }}" style="width:100%">
             <h3> {{product.product_name}}</h3>
-            <h4> {{ product.price }}</h4>
-           </a>
+                <h4> {{ product.price }}</h4>
+
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                <a href="{{ product.image.url }} ">view</a>
         </div>
     {% endfor %}
   </div>
