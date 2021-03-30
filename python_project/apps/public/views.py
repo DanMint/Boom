@@ -27,8 +27,16 @@ def shirts(request):
 
 
 def pants(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/pants.html")
+    return render(request, "products/Pants/pants.html")
 
 
-def Shirtone(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/Shirts/Things_shirts/ShirtOne.html")
+def dress(request: HttpRequest) -> HttpResponse:
+    return render(request, "products/Dress/dress.html")
+
+
+def sweatshirts(request: HttpRequest) -> HttpResponse:
+    return render(request, "products/SweatShirts/sweatshirts.html")
+
+
+def skirts(request: HttpRequest) -> HttpResponse:
+    return render(request, "products/Skirts/skirts.html")
