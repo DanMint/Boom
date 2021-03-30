@@ -13,7 +13,7 @@ urlpatterns = [
     path('products/pants', views.pants, name="pants"),
     path('products/dress', views.dress, name="dress"),
     path('products/skirts', views.skirts, name="skirts"),
-    path('products/sweatshirts', views.pants, name="swetshirts"),
+    path('products/sweatshirts', views.swetshirts, name="swetshirts"),
     path('products/shirts/Givencci', views.Shirtone, name="Givencci"),
 
     # path('products/tankTops', views.tankTops),
