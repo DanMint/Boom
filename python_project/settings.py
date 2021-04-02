@@ -123,7 +123,6 @@ LOGIN_URL = "accounts:login"
 LOGIN_REDIRECT_URL = "public:index"
 LOGOUT_REDIRECT_URL = "public:index"
 
-
 # STATICFILES_DIRS = [
 #     os.path.join(PROJECT_DIR, 'staticfiles'),  # if your static files folder is named "staticfiles"
 # ]

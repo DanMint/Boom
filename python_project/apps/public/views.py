@@ -3,6 +3,8 @@ from django.template import loader
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from python_project.apps.products_db.Women_Dresses_db.models import WomenDressesProducts
 from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
 
 
@@ -26,12 +28,14 @@ def shirts(request):
     return render(request, 'products/Shirts/shirts.html', context)
 
 
+def dress(request):
+    products = WomenDressesProducts.objects.all()
+    context = {'products': products}
+    return render(request, 'products/Dress/dress.html', context)
+
+
 def pants(request: HttpRequest) -> HttpResponse:
     return render(request, "products/Pants/pants.html")
-
-
-def dress(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/Dress/dress.html")
 
 
 def sweatshirts(request: HttpRequest) -> HttpResponse:

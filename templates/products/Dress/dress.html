@@ -18,66 +18,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   </div>
 </div>
 
-
-
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
     {% include 'navbar.html' %}
 
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-       <a href="/products/ShirtOne">
-        <img src="https://st.tsum.com/btrx/i/11/85/00/17//01_1526.jpg?u=1614980610" style="width:100%">
-        <h3>ALEXANDER MCQUEEN</h3>
-       </a>
-    </div>
-    <div class="w3-quarter">
-        <a href="">
-            <img src="https://st.tsum.com/btrx/i/11/84/48/30//01_1526.jpg?u=1614808713" style="width:100%">
-            <h3>DOLCE & GABBANA</h3>
-        </a>
-    </div>
-    <div class="w3-quarter">
-         <a href="">
-          <img src="https://st.tsum.com/btrx/i/11/84/15/97//01_1526.jpg?u=1614777212" alt="Cherries" style="width:100%">
-          <h3>ALEXANDRE VAUTHIER</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-         <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/84/01/82//01_1526.jpg?u=1614721617" style="width:100%">
-             <h3>ALEXANDER MCQUEEN</h3>
-         </a>
-    </div>
-  </div>
 
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/87/70/53//01_1526.jpg?u=1615671621" style="width:100%">
-             <h3>LORO PIANA</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/59/36/80//01_1526.jpg?u=1608326808" style="width:100%">
-             <h3>PBRUNELLO CUCINELLI</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/80/38/59//01_1526.jpg?u=1613684717" style="width:100%">
-             <h3>GIVENCHY</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/90/03/76//01_1526.jpg?u=1616275615" style="width:100%">
-             <h3>SAINT LAURENT</h3>
-         </a>
-    </div>
+<p class="bottom-three">
+<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    {% for product in products%}
+            <div class="w3-quarter">
+{#            <a href="/products/ShirtOne">#}
+            <img src="{{ product.image.url }}" style="width:100%">
+            <h3> {{product.product_name}}</h3>
+                <h4> {{ product.price }}</h4>
+
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                <a href="{{ product.image.url }} ">view</a>
+        </div>
+    {% endfor %}
   </div>
 
 
