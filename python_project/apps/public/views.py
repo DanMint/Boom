@@ -4,8 +4,11 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from python_project.apps.products_db.Man_Sweater_db.models import MenSweatersProducts
 from python_project.apps.products_db.Women_Dresses_db.models import WomenDressesProducts
+from python_project.apps.products_db.Women_Pants_db.models import WomenPantsProducts
 from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
+from python_project.apps.products_db.Women_Skirts_db.models import WomenSkirtsProducts
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -34,13 +37,19 @@ def dress(request):
     return render(request, 'products/Dress/dress.html', context)
 
 
+def skirts(request):
+    products = WomenSkirtsProducts.objects.all()
+    context = {'products': products}
+    return render(request, 'products/Skirts/skirts.html', context)
+
+
 def pants(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/Pants/pants.html")
+    products = WomenPantsProducts.objects.all()
+    context = {'products': products}
+    return render(request, 'products/Skirts/skirts.html', context)
 
 
 def sweatshirts(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/SweatShirts/sweatshirts.html")
-
-
-def skirts(request: HttpRequest) -> HttpResponse:
-    return render(request, "products/Skirts/skirts.html")
+    products = MenSweatersProducts.objects.all()
+    context = {'products': products}
+    return render(request, 'products/Skirts/skirts.html', context)

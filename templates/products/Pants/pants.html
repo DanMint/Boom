@@ -24,61 +24,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
     {% include 'navbar.html' %}
 
+  <!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+    {% include 'navbar.html' %}
+
+
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-    <div class="w3-quarter">
-       <a href="/products/ShirtOne">
-        <img src="https://st.tsum.com/btrx/i/11/73/89/87//01_1526.jpg?u=1612388777" style="width:100%">
-        <h3><A>TOM FORD</A></h3>
-       </a>
-    </div>
-    <div class="w3-quarter">
-        <a href="">
-            <img src="https://st.tsum.com/btrx/i/11/83/12/88//01_1526.jpg?u=1614462058" style="width:100%">
-            <h3>TOM FORD</h3>
-        </a>
-    </div>
-    <div class="w3-quarter">
-         <a href="">
-          <img src="https://st.tsum.com/btrx/i/11/83/06/50//01_1526.jpg?u=1614461709" alt="Cherries" style="width:100%">
-          <h3>STELLA MCCARTNEY</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-         <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/82/08/20//01_1526.jpg?u=1614288882" style="width:100%">
-             <h3>JIL SANDER</h3>
-         </a>
-    </div>
+    {% for product in products%}
+            <div class="w3-quarter">
+{#            <a href="/products/ShirtOne">#}
+            <img src="{{ product.image.url }}" style="width:100%">
+            <h3> {{product.product_name}}</h3>
+                <h4> {{ product.price }}</h4>
+
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                <a href="{{ product.image.url }} ">view</a>
+        </div>
+    {% endfor %}
   </div>
 
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/85/04/38//01_1526.jpg?u=1614980816" style="width:100%">
-             <h3>PAIGE</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/84/98/24//01_1526.jpg?u=1614980501" style="width:100%">
-             <h3>ISABEL MARANT</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/82/64/81//01_1526.jpg?u=1614376348" style="width:100%">
-             <h3>J BRAND</h3>
-         </a>
-    </div>
-    <div class="w3-quarter">
-      <a href="">
-             <img src="https://st.tsum.com/btrx/i/11/82/11/53//01_1526.jpg?u=1614289095" style="width:100%">
-             <h3>CITIZENS OF HUMANITY</h3>
-         </a>
-    </div>
-  </div>
+
 
 
 <!-- End page content -->
