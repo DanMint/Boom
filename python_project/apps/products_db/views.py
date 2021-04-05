@@ -9,4 +9,3 @@ from python_project.apps.products_db.Women_Pants_db.models import WomenPantsProd
 from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
 from python_project.apps.products_db.Women_Skirts_db.models import WomenSkirtsProducts
 
-

@@ -11,6 +11,9 @@
             {% url 'accounts:profile' as profile_url %}
             <span>Hi {% if request.path == profile_url %}{{ user.username }}{% else %}<a href="{{ profile_url }}">{{ user.username }}</a>{% endif %}! </span>
             <span><a href="{% url 'accounts:logout' %}">Logout</a> </span>
+            <a href="{% url 'public:cart' %}">
+                <img src="https://florex.am/Themes/florex/Content/images/icon-cart.png" width="25" height="25">
+            </a>
         {% else %}
             <span><a href="{% url 'accounts:login' %}">Login</a></span>
             <span><a href="{% url 'accounts:signup' %}">Sign up</a></span>

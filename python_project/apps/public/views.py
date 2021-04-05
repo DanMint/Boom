@@ -1,6 +1,7 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpRequest
 from django.template import loader
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -9,6 +10,7 @@ from python_project.apps.products_db.Women_Dresses_db.models import WomenDresses
 from python_project.apps.products_db.Women_Pants_db.models import WomenPantsProducts
 from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
 from python_project.apps.products_db.Women_Skirts_db.models import WomenSkirtsProducts
+from python_project.apps.products_db.models import Order
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -53,3 +55,14 @@ def sweatshirts(request: HttpRequest) -> HttpResponse:
     products = MenSweatersProducts.objects.all()
     context = {'products': products}
     return render(request, 'products/Skirts/skirts.html', context)
+
+
+def cart(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+    context = {'items': items}
+    return render(request, 'cart.html', context)
