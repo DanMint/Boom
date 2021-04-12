@@ -36,6 +36,12 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 
+    @property
+    def get_cart_total(self):
+        orderItems = self.orderitem_set.all()
+        total = sum([item.get_total for item in orderItems])
+        return total
+
 
 # WomenShirtsProducts, WomenSkirtsProducts, WomenPantsProducts, WomenDressesProducts,MenSweatersProducts, ManShirtsProducts, ManPantsProducts, ManDressShirtsProducts,
 
@@ -51,6 +57,11 @@ class OrderItem(models.Model):
                                                  blank=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_total(self):
+        total = self.Women_Shirts_product.price + self.Women_Skirts_product.price + self.Women_Dresses_product.price
+        return total
 
 
 class ShippingAddress(models.Model):
