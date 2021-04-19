@@ -9,6 +9,8 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('contact', views.contact, name="contact"),
     path('cart', views.cart, name="cart"),
+    path('products/dress/comments', views.dress_comments, name="dress_comment"),
+    path('products/dress/add_comment', views.add_comment, name="add_dress_comment"),
     # here we specify the data bases
     path('products/shirts', views.shirts, name="shirts"),
     path('products/pants', views.pants, name="pants"),

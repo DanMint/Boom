@@ -1,0 +1,29 @@
+{% block content %}
+
+{#    <h2>{{ post.title }}</h2>#}
+{#    <p>writen by {{ post.author }} on {{ post.published }}</p>#}
+{#    <hr>#}
+{#    {{ post.content|linebreaks }}#}
+{#    <hr>#}
+{#    <h1>Leave A comment</h1>#}
+{#    <p>Total Number of comments {{ post.comment.count }}</p>#}
+{#    <a href="">Leave a comment</a>#}
+{#    {% for comment in post.comment.all %}#}
+{#        <p>{{ comment.created }}</p>#}
+{#        <p>{{ comment.user }}</p>#}
+{#        <p>{{ comment.body }}</p>#}
+{#    {% empty %}#}
+{#        <p>There is no comments</p>#}
+{#    {% endfor %}#}
+    {% for item in items %}
+         <h1>From: {{ item.user }}</h1>
+        <br>
+        <h4>The product: {{ item.product }}</h4>
+        <br>
+        <h4>Their email addres: {{ item.email }}</h4>
+        <br>
+        {{ item.body }}
+        <hr style="width:50%;text-align:left;margin-left:0">
+    {% endfor %}
+    <a href="add_comment">Leave a comment</a>
+{% endblock content %}

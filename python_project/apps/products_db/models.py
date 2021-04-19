@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django import forms
 
 # to conect ppl by there intersts
 from django.urls import reverse
@@ -43,7 +44,9 @@ class Order(models.Model):
         return total
 
 
-# WomenShirtsProducts, WomenSkirtsProducts, WomenPantsProducts, WomenDressesProducts,MenSweatersProducts, ManShirtsProducts, ManPantsProducts, ManDressShirtsProducts,
+iterator = [WomenShirtsProducts, WomenSkirtsProducts, WomenPantsProducts, WomenDressesProducts, MenSweatersProducts,
+            ManShirtsProducts, ManPantsProducts, ManDressShirtsProducts]
+
 
 class OrderItem(models.Model):
     Women_Shirts_product = models.ForeignKey(WomenShirtsProducts, on_delete=models.SET_NULL, null=True, blank=True)
@@ -73,3 +76,5 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
+
+

@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from django import forms
 
 # to conect ppl by there intersts
 from django.urls import reverse
@@ -15,3 +15,17 @@ class WomenDressesProducts(models.Model):
 
     def __str__(self):
         return self.product_name
+
+
+class Comment(models.Model):
+    user = models.CharField(max_length=250)
+    email = models.CharField(max_length=250)
+    product = models.ForeignKey(WomenDressesProducts, on_delete=models.SET_NULL, null=True)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('user', 'product', 'email', 'body')
