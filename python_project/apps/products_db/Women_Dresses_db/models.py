@@ -22,7 +22,6 @@ class Comment(models.Model):
     email = models.CharField(max_length=250)
     product = models.ForeignKey(WomenDressesProducts, on_delete=models.SET_NULL, null=True)
     body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
 
 
 class CommentForm(forms.ModelForm):

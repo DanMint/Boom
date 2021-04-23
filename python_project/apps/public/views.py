@@ -1,10 +1,9 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from pip._vendor.requests import post
 
 from python_project.apps.products_db.Man_Sweater_db.models import MenSweatersProducts
 from python_project.apps.products_db.Women_Dresses_db.models import WomenDressesProducts, Comment, CommentForm
@@ -75,39 +74,11 @@ def dress_comments(request: HttpRequest) -> HttpResponse:
     return render(request, "products/Dress/dress_comments.html", context)
 
 
-# def add_comment(request):
-#     form = CommentForm(request.POST)
-#     if form.is_valid():
-#         comment = form.save(commit=False)
-#         comment.post = post
-#         comment.save()
-#         return render(request, "products/Dress/dress_comments.html")
-#     else:
-#         form = CommentForm()
-#     context = {'form': form}
-#     return render(request, "products/Dress/dress_comments.html", context)
-#  return render(request, "products/Dress/dress_new_comment.html")
 def add_comment(request: HttpRequest) -> HttpResponse:
-    form = CommentForm(request.POST or None)
-    if form.is_valid():
-        form.user = "admin2"
-        form.email = "lala@gmail.com"
-        form.product = "Loro Piana"
-        form.body = "haha"
+    comment_form = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        comment_form.save()
 
-    context = {'form':form}
-    return render(request, "products/Dress/dress_new_comment.html", context)
-
-    # new_comment = Comment()
-    #
-    # if request.method == 'POST':
-    #     comment_form = CommentForm(request.POST or None)
-    #     if comment_form.is_valid():
-    #         new_comment = comment_form.save(commit=False)
-    #         new_comment.post = post
-    #         # Save the comment to the database
-    #         new_comment.save()
-    # else:
-    #     comment_form = CommentForm()
-    # return render(request, "products/Dress/dress_new_comment.html",
-    #               {'post': post, 'new_comment': new_comment, 'comment_form': comment_form})
+    return render(request, "products/Dress/dress_new_comment.html",
+                  {'comment_form': comment_form})

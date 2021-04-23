@@ -21,8 +21,6 @@ admin.site.register(ManShirtsProducts)
 admin.site.register(ManPantsProducts)
 admin.site.register(ManDressShirtsProducts)
 admin.site.register(Comment)
-
 admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(ShippingAddress)
-

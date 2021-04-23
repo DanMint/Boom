@@ -1,6 +1,10 @@
-<h2>Add a new comment</h2>
-<form action="comments" method="post">
-{{ comment_form.as_p }}
-{% csrf_token %}
-<p ><input type="submit" value="Add comment"></p>
-</form>
+{% if new_comment %}
+  <h2>Your comment has been added.</h2>
+{% else %}
+  <h2>Add a new comment</h2>
+  <form action="comments" method="POST">
+    {{ comment_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Add comment"></p>
+  </form>
+{% endif %}
