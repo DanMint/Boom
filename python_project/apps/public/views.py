@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from python_project.apps.products_db.Man_Sweater_db.models import MenSweatersProducts
-from python_project.apps.products_db.Women_Dresses_db.models import WomenDressesProducts, Comment, CommentForm
+from python_project.apps.products_db.Women_Dresses_db.models import WomenDressesProducts, Comment
 from python_project.apps.products_db.Women_Pants_db.models import WomenPantsProducts
 from python_project.apps.products_db.Women_Shirts_db.models import WomenShirtsProducts
 from python_project.apps.products_db.Women_Skirts_db.models import WomenSkirtsProducts
@@ -74,11 +74,16 @@ def dress_comments(request: HttpRequest) -> HttpResponse:
     return render(request, "products/Dress/dress_comments.html", context)
 
 
-def add_comment(request: HttpRequest) -> HttpResponse:
-    comment_form = None
+def add_comment(request):
+    post = None
     if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        comment_form.save()
+        if request.POST.get('user') and request.POST.get('email') and request.POST.get('product') and request.POST.get('body'):
+            post = Comment()
+            post.user = request.POST.get('user')
+            post.email = request.POST.get('email')
+            post.product = request.POST.get('product')
+            post.body = request.POST.get('body')
+            post.save()
 
     return render(request, "products/Dress/dress_new_comment.html",
-                  {'comment_form': comment_form})
+                  {'post': post})
