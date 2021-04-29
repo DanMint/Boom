@@ -2,4 +2,7 @@
 .idea/
 venv/
 __pycache__/
-
+*.sqlite3
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
