@@ -15,3 +15,9 @@ class ManPantsProducts(models.Model):
 
     def __str__(self):
         return self.product_name
+
+class Comment2(models.Model):
+    user = models.CharField(max_length=250)
+    email = models.CharField(max_length=250)
+    product = models.ForeignKey(ManPantsProducts, on_delete=models.SET_NULL, null=True, related_name="comments")
+    body = models.TextField()
