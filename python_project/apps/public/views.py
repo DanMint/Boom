@@ -177,7 +177,7 @@ def add_comment(request):
             post.body = request.POST.get('body')
             post.save()
 
-    return render(request, "products/WomanDress/womanDress_new_comment.html",
+    return render(request, "products/Dress/womanDress_new_comment.html",
                   {'post': post})
 
 def add_comment5(request):
