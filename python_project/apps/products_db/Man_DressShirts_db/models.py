@@ -15,9 +15,3 @@ class ManDressShirtsProducts(models.Model):
 
     def __str__(self):
         return self.product_name
-
-class Comment1(models.Model):
-    user = models.CharField(max_length=250)
-    email = models.CharField(max_length=250)
-    product = models.ForeignKey(ManDressShirtsProducts, on_delete=models.SET_NULL, null=True, related_name="comments1")
-    body = models.TextField()
