@@ -70,22 +70,22 @@ def cart(request):
     context = {'items': items, 'order': order}
     return render(request, 'cart.html', context)
 
-def mandressshirts_comments1(request: HttpRequest) -> HttpResponse:
+def mendressshirts_comments1(request: HttpRequest) -> HttpResponse:
     items = Comment1.objects.all()
     context = {'items': items}
     return render(request, "products/ManDressShirts/manDressShirts_comments1.html", context)
 
-def manpants_comments2(request: HttpRequest) -> HttpResponse:
+def menpants_comments2(request: HttpRequest) -> HttpResponse:
     items = Comment2.objects.all()
     context = {'items': items}
     return render(request, "products/ManPants/manPants_comments2.html", context)
 
-def manshirts_comments3(request: HttpRequest) -> HttpResponse:
+def menshirts_comments3(request: HttpRequest) -> HttpResponse:
     items = Comment3.objects.all()
     context = {'items': items}
     return render(request, "products/ManShirts/manShirts_comments3.html", context)
 
-def mansweater_comments4(request: HttpRequest) -> HttpResponse:
+def mensweater_comments4(request: HttpRequest) -> HttpResponse:
     items = Comment4.objects.all()
     context = {'items': items}
     return render(request, "products/ManSweater/manSweater_comments4.html", context)
@@ -221,4 +221,3 @@ def add_comment7(request):
 
     return render(request, "products/WomanSkirts/womanSkirts_new_comment.html",
                   {'post': post})
-
