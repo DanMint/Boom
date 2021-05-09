@@ -9,6 +9,7 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('contact', views.contact, name="contact"),
     path('cart', views.cart, name="cart"),
+    path('admino', views.adm, name = 'admin'),
     path('products/dress/comments', views.dress_comments, name="dress_comment"),
     path('products/dress/add_comment', views.add_comment, name="add_dress_comment"),
     # here we specify the data bases
@@ -19,4 +20,5 @@ urlpatterns = [
     path('products/sweatshirts', views.sweatshirts, name="sweatshirts"),
     # path('products/tankTops', views.tankTops),
     # path('products/socks', views.socks  ),
+    path('delete/<int:id>', views.delete_comment_for_admin, name='deletion'),
 ]

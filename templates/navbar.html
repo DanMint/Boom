@@ -8,6 +8,9 @@
     <span>{% if request.path == contact_url %}Home{% else %}<a href="{{contact_url}}"> Contact</a>{% endif %}</span>
     <span style="float:right">
         {% if user.is_authenticated %}
+            {% if user.is_staff %}
+                <a href="admino">Admin </a>
+                {% endif %}
             {% url 'accounts:profile' as profile_url %}
             <span>Hi {% if request.path == profile_url %}{{ user.username }}{% else %}<a href="{{ profile_url }}">{{ user.username }}</a>{% endif %}! </span>
             <span><a href="{% url 'accounts:logout' %}">Logout</a> </span>

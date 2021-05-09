@@ -21,7 +21,7 @@ class WomenDressesProducts(models.Model):
 class Comment(models.Model):
     user = models.CharField(max_length=250)
     email = models.CharField(max_length=250)
-    product = models.ForeignKey(WomenDressesProducts, on_delete=models.SET_NULL, null=True, related_name="comments")
+    product = models.CharField(max_length=250, null=True)
     body = models.TextField()
 
 

@@ -76,14 +76,39 @@ def dress_comments(request: HttpRequest) -> HttpResponse:
 
 def add_comment(request):
     post = None
+    print('0')
     if request.method == 'POST':
-        if request.POST.get('user') and request.POST.get('email') and request.POST.get('product') and request.POST.get('body'):
+        if request.POST.get('user') and request.POST.get('email') and request.POST.get('product') and request.POST.get(
+                'body'):
+            print("1")
             post = Comment()
+            print("2")
             post.user = request.POST.get('user')
+            print("3")
             post.email = request.POST.get('email')
+            print("4")
             post.product = request.POST.get('product')
+            print("5")
             post.body = request.POST.get('body')
+            print("6")
             post.save()
+            print("7")
 
     return render(request, "products/Dress/dress_new_comment.html",
                   {'post': post})
+
+
+def adm(request: HttpRequest) -> HttpResponse:
+    commo = Comment.objects.all()
+    dresses = WomenDressesProducts.objects.all()
+    context = {'comments': commo, 'dress': dresses}
+    return render(request, "admin2.html", context)
+
+
+def delete_comment_for_admin(request, id):
+    print(1)
+    deleto = Comment.objects.get(id=id)
+    print(2)
+    deleto.delete()
+    print(3)
+    return render(request, "delete_view.html")

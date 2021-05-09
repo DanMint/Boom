@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Admin page</h1>
+<h2>All the coments</h2>
+{% for el in comments %}
+    <a>{{el.user}} &nbsp;&nbsp;&nbsp; </a>
+        <br>
+    <a href="/delete/{{ el.id }}"> Delete </a>
+{% endfor %}
+<br>
+<h2>All the dresses</h2>
+{% for el in dress %}
+    <a>{{ el.product_name }} &nbsp;&nbsp;&nbsp; </a>
+    <a>   </a>
+    <a>{{ el.price }}</a>
+    <a>$ &nbsp;&nbsp;&nbsp;</a>
+{#    <a href="{% url 'delete' el.id %}">Delete</a>#}
+    <br>
+{% endfor %}
+
+</body>
+</html>
